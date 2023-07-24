@@ -1,0 +1,59 @@
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2018 The MathWorks, Inc.
+              R2018b Update 2 (9.5.0.1033004) 64-bit (glnxa64)
+                              January 5, 2019
+
+ 
+To get started, type doc.
+For product information, visit www.mathworks.com.
+ 
+Building with 'nvcc'.
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(65): warning: variable "C0" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(159): warning: variable "NchanUp" was set but never used
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(161): warning: variable "d2" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(230): warning: variable "nt0" was set but never used
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(20): warning: variable "nt0max" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(20): warning: variable "NchanMax" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(65): warning: variable "C0" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(159): warning: variable "NchanUp" was set but never used
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(161): warning: variable "d2" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(230): warning: variable "nt0" was set but never used
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(20): warning: variable "nt0max" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(20): warning: variable "NchanMax" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(65): warning: variable "C0" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(159): warning: variable "NchanUp" was set but never used
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(161): warning: variable "d2" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(230): warning: variable "nt0" was set but never used
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(20): warning: variable "nt0max" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(20): warning: variable "NchanMax" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(65): warning: variable "C0" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(159): warning: variable "NchanUp" was set but never used
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(161): warning: variable "d2" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(230): warning: variable "nt0" was set but never used
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(20): warning: variable "nt0max" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(20): warning: variable "NchanMax" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(65): warning: variable "C0" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(159): warning: variable "NchanUp" was set but never used
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(161): warning: variable "d2" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(230): warning: variable "nt0" was set but never used
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(20): warning: variable "nt0max" was declared but never referenced
+/om/user/rishir/lib/Kilosort/CUDA/spikedetector3.cu(20): warning: variable "NchanMax" was declared but never referenced
+
+MEX completed successfully.
+Building with 'nvcc'.
+MEX completed successfully.
+Building with 'nvcc'.
+MEX completed successfully.
+Building with 'nvcc-dp'.
+MEX completed successfully.
+Building with 'nvcc'.
+MEX completed successfully.
+Building with 'nvcc'.
+MEX completed successfully.
+Building with 'nvcc'.
+MEX completed successfully.
+Building with 'nvcc'.
+MEX completed successfully.
+Building with 'nvcc'.
+MEX completed successfully.

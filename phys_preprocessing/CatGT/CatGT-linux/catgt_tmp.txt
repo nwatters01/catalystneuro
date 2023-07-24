@@ -1,0 +1,95 @@
+
+cat ../CatGT/CatGT-linux/CatGT.log
+
+ls /om4/group/jazlab/nwatters/multi_prediction/phys_data/Elgar/2022-06-04/raw_data/spikeglx/
+
+cd /om2/user/nwatters/multi_prediction/phys_preprocessing/scripts/
+
+
+
+
+catGT_dest = r'D:\ecephys_fork\test_data\SC_10trial\KS3'
+
+# ------------
+# CatGT params
+# ------------
+run_CatGT = True   # set to False to sort/process previously processed data.
+
+
+# CAR mode for CatGT. Must be equal to 'None', 'gbldmx', 'gblcar' or 'loccar'
+car_mode = 'gblcar'
+# inner and outer radii, in um for local comman average reference, if used
+loccar_min = 40
+loccar_max = 160
+
+# flag to process lf. The depth estimation module assumes lf has been processed.
+# if selected, must also include a range for filtering in the catGT_cmd_string
+process_lf = True
+
+
+# CatGT commands for bandpass filtering, artifact correction, and zero filling
+# Note 1: directory naming in this script requires -prb_fld and -out_prb_fld
+# Note 2: this command line includes specification of edge extraction
+# see CatGT readme for details
+# these parameters will be used for all runs
+catGT_cmd_string = '-prb_fld -out_prb_fld -apfilter=butter,12,300,10000 -lffilter=butter,12,1,500 -gfix=0.4,0.10,0.02 '
+
+ni_present = True
+ni_extract_string = '-XA=0,1,3,500 -iXA=1,3,3,0  -XD=-1,1,50 -XD=-1,2,1.7 -XD=-1,3,5 -iXD=-1,3,5'
+
+
+
+
+
+
+
+-apfilter=Typ,N,Fhi,Flo  ;apply ap band-pass filter of given {type, order, corners(float Hz)}
+-lffilter=Typ,N,Fhi,Flo  ;apply lf band-pass filter of given {type, order, corners(float Hz)}
+-no_tshift               ;DO NOT time-align channels to account for ADC multiplexing
+-loccar=2,8              ;apply ap local CAR annulus (exclude radius, include radius)
+-gblcar                  ;apply ap global CAR filter over all channels
+-gfix=0.40,0.10,0.02     ;rmv ap artifacts: ||amp(mV)||, ||slope(mV/sample)||, ||noise(mV)||
+-chnexcl={prb;chans}     ;this probe, exclude listed chans from ap loccar, gblcar, gfix
+-xa=0,0,2,3.0,4.5,25     ;extract pulse signal from analog chan (js,ip,word,thresh1(V),thresh2(V),millisec)
+-xd=2,0,384,6,500        ;extract pulse signal from digital chan (js,ip,word,bit,millisec)
+-xia=0,0,2,3.0,4.5,2     ;inverted version of xa
+-xid=2,0,384,6,50        ;inverted version of xd
+-bf=0,0,8,2,4,3          ;extract numeric bit-field from digital chan (js,ip,word,startbit,nbits,inarow)
+-inarow=5                ;extractor {xa,xd,xia,xid} antibounce stay high/low sample count
+
+
+
+
+
+
+   
+    # common average referencing
+    car_mode = args['catGT_helper_params']['car_mode']
+    if car_mode == 'loccar':
+        inner_site = args['catGT_helper_params']['loccar_inner']
+        outer_site = args['catGT_helper_params']['loccar_outer']
+        car_str = ' -loccar=' + repr(inner_site) + ',' + repr(outer_site)
+    elif car_mode == 'gbldmx':
+        car_str = ' -gbldmx'    
+    elif car_mode == 'gblcar':
+        car_str = ' -gblcar'
+    elif car_mode == 'None' or car_mode == 'none':
+        car_str = ''
+        
+
+
+
+
+
+
+class CatGTParams(DefaultSchema):
+    run_name = String(required=True, help='undecorated run name (no g or t indices')
+    gate_string = String(required=True, default='0', help='gate string')
+    trigger_string = String(required=True, default='0,0', help='string specifying trials to concatenate, e.g. 0,200')
+    probe_string = String(required=True, default='0', help='string specifying probes, e.g. 0:3')
+    stream_string = String(required=True, default='-ap', help='string specifying which streams to process')
+    car_mode = String(require=False, default='None', help='Comaon average reference mode. Must = None, gbldmx, or loccar ')
+    loccar_inner = Int(require=False, default=2, help='Inner radius for loccar in sites')
+    loccar_outer = Int(require=False, default=8, help='Outer radius for loccar in sites')
+    cmdStr = String(required=True, default='-prbfld -aphipass=300 -gbldmx -gfix=0.40,0.10,0.02', help='input stream filter, error correct and extract settings for CatGT')
+    catGTPath = InputDir(help='directory containing the CatGT executable.')
